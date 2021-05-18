@@ -34,16 +34,20 @@ function checkPrice() {
             let calculatePrice = price - (price * discount);
             let finalValue = calculatePrice.toFixed(2);
             discountedCost[i] = finalValue;
-            if (rangeValue == i) {
+            if (rangeValue == i) {  //Discount for YEARLY
+                let xPageviews = Object.values(pageviews)[i];
+                $('.tier-pageviews').text(xPageviews);  //ex: '100K PAGEVIEWS'
                 let discountedPrice = Object.values(discountedCost)[i];
-                $('.payment').text('$' + discountedPrice);
+                $('.payment').text('$' + discountedPrice);  //ex: $12.00
                 let rangeFilled = Object.values(rangeFill)[i];
-                $('.range').css('background', rangeFilled);
+                $('.range').css('background', rangeFilled);  //Range slider - Cyan fill
             }
-        } else if (rangeValue == i) {
+        } else if (rangeValue == i) {  //NO discount
+            let xPageviews = Object.values(pageviews)[i];
+            $('.tier-pageviews').text(xPageviews);
             let price = Object.values(cost)[i];
-            let priceDecimal = price.toFixed(2);
-            $('.payment').text('$' + priceDecimal);
+            let priceDecimal = price.toFixed(2);  
+            $('.payment').text('$' + priceDecimal);  //ex: $16.00
             let rangeFilled = Object.values(rangeFill)[i];
             $('.range').css('background', rangeFilled);
         }
