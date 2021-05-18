@@ -14,6 +14,7 @@ let cost = {
     3: 24,
     4: 36
 };
+let discount = 0.25;
 let discountedCost = {
 };
 const rangeFill = {
@@ -25,15 +26,16 @@ const rangeFill = {
 };
 // VARIABLES END
 
+// FUNCTION START
 function checkPrice() {
-    let rangeValue = $('#tier-range').val()
-    for (i=0; i<=4; i++) {
+    let objectLength = Object.keys(cost).length;
+    let rangeValue = $('#tier-range').val();
+    for (i=0; i<objectLength; i++) {
         if ($('#toggle').is(':checked')) {
             let price = Object.values(cost)[i];
-            let discount = 0.25;
             let calculatePrice = price - (price * discount);
-            let finalValue = calculatePrice.toFixed(2);
-            discountedCost[i] = finalValue;
+            let finalPrice = calculatePrice.toFixed(2);
+            discountedCost[i] = finalPrice;
             if (rangeValue == i) {  //Discount for YEARLY
                 let xPageviews = Object.values(pageviews)[i];
                 $('.tier-pageviews').text(xPageviews);  //ex: '100K PAGEVIEWS'
@@ -43,16 +45,17 @@ function checkPrice() {
                 $('.range').css('background', rangeFilled);  //Range slider - Cyan fill
             }
         } else if (rangeValue == i) {  //NO discount
-            let xPageviews = Object.values(pageviews)[i];
-            $('.tier-pageviews').text(xPageviews);
             let price = Object.values(cost)[i];
-            let priceDecimal = price.toFixed(2);  
-            $('.payment').text('$' + priceDecimal);  //ex: $16.00
+            let finalPrice = price.toFixed(2);
+            let xPageviews = Object.values(pageviews)[i];
+            $('.tier-pageviews').text(xPageviews);  
+            $('.payment').text('$' + finalPrice);  //ex: $16.00
             let rangeFilled = Object.values(rangeFill)[i];
             $('.range').css('background', rangeFilled);
         }
     }
 }
+// FUNCTION END
 
 $('#tier-range').on('input', function() {
     checkPrice();
