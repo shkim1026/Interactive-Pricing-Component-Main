@@ -1,7 +1,377 @@
+/* # Front-end Style Guide
 
-.attribution { 
-    font-size: 11px; text-align: center; 
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Soft Cyan (Full Slider Bar): hsl(174, 77%, 80%)
+- Strong Cyan (Slider Backround): hsl(174, 86%, 45%)
+- Light Grayish Red (Discount Background): hsl(14, 92%, 95%)
+- Light Red (Discount Text): hsl(15, 100%, 70%)
+- Pale Blue (CTA Text): hsl(226, 100%, 87%)
+
+### Neutral
+
+- White (Pricing Component Background): hsl (0, 0%, 100%)
+- Very Pale Blue (Main Background): hsl(230, 100%, 99%)
+- Light Grayish Blue (Empty Slider Bar): hsl(224, 65%, 95%)
+- Light Grayish Blue (Toggle Background): hsl(223, 50%, 87%)
+- Grayish Blue (Text): hsl(225, 20%, 60%)
+- Dark Desaturated Blue (Text & CTA Background): hsl(227, 35%, 25%)
+
+## Typography
+
+### Body Copy
+
+- Font size (Introductory Paragraph): 15px
+
+### Font
+
+- Family: [Manrope](https://fonts.google.com/specimen/Manrope)
+- Weights: 600, 800 */
+
+/* #Tiers
+- 10K pageviews / $8 per month
+- 50K pageviews / $12 per month
+- 100K pageviews / $16 per month
+- 500k pageviews / $24 per month
+- 1M pageviews / $36 per month */
+
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* GENERAL STYLE */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+body, h1, h2, h3, h4, h5, p {
+    font-family: 'Manrope', sans-serif;
 }
-.attribution a { 
-    color: hsl(228, 45%, 44%); 
+p {
+    font-size: 15px;
+    margin: 0;
+    color: hsl(225, 20%, 60%);
+}
+button {
+    cursor: pointer;
+}
+button:hover {
+    color: hsl(230, 100%, 99%);
+}
+/* ////////////////////////////////////////////////////////////////////////// */
+/* FUNCTIONAL STYLE */
+/* ////////////////////////////////////////////////////////////////////////// */
+.absolute-center {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+/* ////////////////////////////////////////////////////////////////////////// */
+/* COMPONENT STYLE */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.component-container {
+    background-color:hsl(230, 100%, 99%);
+    max-width: 1440p;
+    text-align: center;
+    height: 100vh;
+}
+.component-header {
+    padding: 4rem 0rem;
+    padding-top: 3rem;
+    background-image: url(../images/bg-pattern.svg);
+    background-position: bottom left;
+    min-height: 16rem;
+}
+.title-tag-container {
+    background-image: url(../images/pattern-circles.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10rem;
+    min-height: 10rem;
+}
+.component-title {
+    top: 5rem;
+    margin: 8px auto;
+    font-size: 22px;
+    color: hsl(227, 35%, 25%);
+}
+.component-tag {
+    top: 7.75rem;
+    margin: 0 auto;
+    max-width: 217px;
+    line-height: 26px;
+    font-size: 15px;
+    font-weight: 600;
+    color: hsl(225, 20%, 60%);
+}
+.component-inner {
+    width: 325px;
+    margin: 0px auto;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 11px;
+    transform: translateY(-8rem);
+    box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 11px 20px 0 rgb(0 0 0 / 5%);
+}
+.tier-pageviews {
+    margin: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: hsl(225, 20%, 60%);
+    font-size: 13px;
+    font-weight: 800;
+}
+.payment-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 6rem;
+}
+.payment {
+    color: hsl(227, 35%, 25%);
+    font-size: 2rem;
+    font-weight: 800;
+    justify-self: end;
+    margin-right: 6px;
+}
+.per-month {
+    justify-self: baseline;
+    align-self: center;
+}
+
+/* RANGE SLIDER START */
+.slide-container {
+    width: 100%;
+    position: absolute;
+    transform: translateY(-6rem);
+}
+.range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 90%;
+    height: 10px; 
+    background: hsl(224, 65%, 95%);
+    border-radius: 10px;
+    outline: none;
+    -webkit-transition: .2s; 
+    transition: opacity .2s;
+}
+/* (Chrome, Opera, Safari, Edge) */
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%;
+    background: hsl(174, 86%, 45%); 
+    background-image: url(../images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    cursor: pointer; 
+    box-shadow: 0 15px 20px 0 rgba(93, 234, 220, 0.75);
+}
+/* (Firefox) */
+.range::-moz-range-thumb {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%;
+    border: none;
+    background: hsl(174, 86%, 45%); 
+    background-image: url(../images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    cursor: pointer;
+    box-shadow: 0 15px 20px 0 rgba(93, 234, 220, 0.75);
+}
+.range::-webkit-slider-thumb:hover {
+    background-color: hsl(174, 77%, 80%);
+}
+.range::-webkit-slider-thumb:active {
+    background-color: hsl(182, 59%, 35%);
+    cursor: grabbing;
+}
+.range::-moz-range-thumb:hover {
+    background-color: hsl(174, 77%, 80%);
+}
+.range::-moz-range-thumb:active {
+    background-color: hsl(182, 59%, 35%);
+    cursor: grabbing;
+}
+/* RANGE SLIDER END */
+
+/* TOGGLE DIV START */
+.toggle-container {
+    display: grid;
+    grid-template-columns: auto min-content auto min-content;
+    margin: 2rem 1rem;
+}
+.m-y-billing-text {
+    font-size: 13px;
+    align-self: center;
+}
+.discount-text {
+    background-color: hsl(14, 92%, 95%);
+    color: hsl(15, 100%, 70%);
+    padding: 4px 9px;
+    font-size: 11px;
+    border-radius: 10px;
+}
+/* Toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 20px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+.slider {
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    background-color: hsl(223, 50%, 87%);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.slider:hover {
+    background-color: hsl(174, 77%, 80%);
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+input:checked + .slider {
+    background-color: hsl(174, 86%, 45%);
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px hsl(174, 86%, 45%);
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+.slider.round {
+    border-radius: 34px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}
+/* TOGGLE DIV END*/
+.border {
+    border: 1px solid hsl(230, 100%, 99%);
+}
+.button-container {
+    margin: 2rem 0;
+}
+.checkmark-list-container {
+    padding: 0;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+.checkmark-item-container {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+.checkmark-text {
+    font-size: 13px;
+    padding-left: 1rem;
+}
+.start-button {
+    padding: 1rem 4rem;
+    border-radius: 35px;
+    border: none;
+    background-color: hsl(227, 35%, 25%);
+    color: hsl(226, 100%, 87%);
+    font-size: 13px;
+} 
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* MEDIA STYLE */
+/* ////////////////////////////////////////////////////////////////////////// */
+@media (min-width: 768px) { 
+    .component-header {
+        min-height: 20rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .component-title {
+        font-size: 30px;
+    }
+    .component-tag {
+        margin: 15px auto;
+        max-width: none;
+    }
+    .component-inner {
+        width: 600px;
+        transform: translateY(-11rem);
+    }
+    .tier-payment-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    .tier-pageviews {
+        margin-left: 3rem;
+        font-size: 15px;
+        justify-self: baseline;
+    }
+    .payment-container {
+        grid-template-columns: auto min-content;
+        margin-top: 0rem;
+        margin-right: 3rem;
+    }
+    .payment {
+        font-size: 45px;
+        align-self: center;
+    }
+    .slide-container {
+        transform: translateY(1rem);
+    }
+    .toggle-container {
+        grid-template-columns: auto min-content auto max-content;
+        width: 57%;
+        margin: 5rem 5rem 2rem auto;
+    }
+    .tier-payment-container {
+        padding-top: 2rem;
+    }
+    .range {
+        width: 85%;
+    }
+    .button-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin: 1rem 0;
+    }
+    .checkmark-list-container {
+        justify-items: baseline;
+        justify-content: space-between;
+        margin-left: 3rem;
+    }
+    .start-button {
+        height: 45px;
+        width: 200px;
+        justify-self: center;
+        align-self: center;
+        padding: 0rem 3rem;
+    }
 }

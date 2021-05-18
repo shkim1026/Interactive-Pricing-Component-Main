@@ -2,34 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   
   <title>Frontend Mentor | Interactive pricing component</title>
 </head>
 
 <body>
-  Simple, traffic-based pricing
-  Sign-up for our 30-day trial. No credit card required. 
-
-  Pageviews
-  $ /month
-
-  Monthly Billing
-  Yearly Billing 25% discount
-
-  Unlimited websites
-  100% data ownership
-  Email reports
-
-  Start my trial
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <main>
+    <div class="component-container">
+      <div class="component-header">
+        <div class="title-tag-container">
+          <h1 class="component-title absolute-center">Simple, traffic-based pricing</h1>
+          <h2 class="component-tag absolute-center">Sign-up for our 30-day trial. No credit card required.</h2>
+        </div>
+      </div>
+      <div class="component-inner absolute-center">
+        <div class="tier-payment-container">
+          <div class="tier-pageviews">100K Pageviews</div>
+          <div class="payment-container">
+            <div class="payment">$16.00</div>
+            <p class="per-month">/month</p>
+          </div>
+        </div>
+        
+        <div class="slide-container">
+          <input type="range" min="0" max="4" step="1" class="range" id="tier-range">
+        </div>
+        <div class="toggle-container">
+          <p class="m-y-billing-text">Monthly Billing</p>
+          <label class="switch">
+            <input type="checkbox" id="toggle">
+            <span class="slider round absolute-center"></span>
+          </label>
+          <p class="m-y-billing-text">Yearly Billing</p>
+          <p class="discount-text">-25%</p>
+        </div>
+        <hr class="border">
+        <div class="button-container">
+          <ul class="checkmark-list-container">
+            <div class="checkmark-item-container">
+              <img src="images/icon-check.svg" alt="checkmark">
+              <p class="checkmark-text">Unlimited websites</p>
+            </div>
+            <div class="checkmark-item-container">
+              <img src="images/icon-check.svg" alt="checkmark">
+              <p class="checkmark-text">100% data ownership</p>
+            </div>
+            <div class="checkmark-item-container">
+              <img src="images/icon-check.svg" alt="checkmark">
+              <p class="checkmark-text">Email reports</p>
+            </div>
+          </ul>
+          <button class="start-button" input="button">Start my trial</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
