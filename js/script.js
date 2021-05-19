@@ -32,15 +32,12 @@ function checkPrice() {
     let rangeValue = $('#tier-range').val();
     for (i=0; i<objectLength; i++) {
         if ($('#toggle').is(':checked')) {
-            let price = Object.values(cost)[i];
-            let calculatePrice = price - (price * discount);
-            let finalPrice = calculatePrice.toFixed(2);
-            discountedCost[i] = finalPrice;
             if (rangeValue == i) {  //Discount for YEARLY
+                let discountedPrice = cost[i] - (cost[i] * discount);
+                let finalDiscountedPrice = discountedPrice.toFixed(2);
                 let xPageviews = Object.values(pageviews)[i];
                 $('.tier-pageviews').text(xPageviews);  //ex: '100K PAGEVIEWS'
-                let discountedPrice = Object.values(discountedCost)[i];
-                $('.payment').text('$' + discountedPrice);  //ex: $12.00
+                $('.payment').text('$' + finalDiscountedPrice);  //ex: $12.00
                 let rangeFilled = Object.values(rangeFill)[i];
                 $('.range').css('background', rangeFilled);  //Range slider - Cyan fill
             }

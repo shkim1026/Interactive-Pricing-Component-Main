@@ -64,7 +64,7 @@ button:hover {
     color: hsl(225, 20%, 60%);
 }
 .component-inner {
-    width: 325px;
+    width: calc(100% - 50px);
     margin: 0px auto;
     background-color: hsl(0, 0%, 100%);
     border-radius: 11px;
@@ -162,7 +162,8 @@ button:hover {
 .toggle-container {
     display: grid;
     grid-template-columns: auto min-content auto min-content;
-    margin: 2rem 1rem;
+    margin: 2rem auto;
+    max-width: 300px;
 }
 .m-y-billing-text {
     font-size: 13px;
@@ -275,7 +276,7 @@ input:checked + .slider:before {
         max-width: none;
     }
     .component-inner {
-        width: 600px;
+        max-width: 600px;
         transform: translateY(-11rem);
     }
     .tier-payment-container {
@@ -303,6 +304,7 @@ input:checked + .slider:before {
         grid-template-columns: auto min-content auto max-content;
         width: 57%;
         margin: 5rem 5rem 2rem auto;
+        max-width: none;
     }
     .tier-payment-container {
         padding-top: 2rem;
